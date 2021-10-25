@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">EcomerceSystem</string>
+    <string name="splash_text">Apparel</string>
+    <string name="a">A</string>
 </resources>
