@@ -6,8 +6,11 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF040415</color>
+    <color name="black_alpha">#040415</color>
     <color name="true_white">#FFFFFFFF</color>
     <color name="white">#FFF9FAFB</color>
     <color name="background">#E5E5E5</color>
-    <color name="accent">#FF6C70EB</color>
+    <color name="accent">#6C70EB</color>
+    <color name="search_box">#EDEEEF</color>
+    <color name="hint_seachbox">#8C9199</color>
 </resources>
