@@ -25,4 +25,18 @@
     <string name="tracks">Tracks</string>
     <string name="socks">Socks</string>
     <string name="underwear">Underwears</string>
+    <string name="hint_seachbox">Search for tshirts. jean, shorts, jackets</string>
+    <string name="men">men</string>
+    <string name="recommended">Recommended</string>
+    <string name="see_all">See all</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="apparel">Apparel</string>
+    <string name="Cart">Cart</string>
+    <string name="olive_zip_front_jacket">Olive Zip-Front Jacket</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="shipping">Shipping:</string>
+    <string name="total_price">Total Price:</string>
+    <string name="_3_items">(3 items)</string>
+    <string name="checkout">Checkout</string>
 </resources>

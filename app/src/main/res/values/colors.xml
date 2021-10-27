@@ -6,6 +6,7 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF040415</color>
+    <color name="black_alpha">#040415</color>
     <color name="true_white">#FFFFFFFF</color>
     <color name="white">#FFF9FAFB</color>
     <color name="background">#E5E5E5</color>
@@ -17,4 +18,7 @@
     <color name="dont_have_account">#9E9E9E</color>
     <color name="detail_product">#669E9E9E</color>
     <color name="sale_off_text">#7BCFFF</color>
+    <color name="search_box">#EDEEEF</color>
+    <color name="hint_seachbox">#8C9199</color>
+>>>>>>> 00031ae7ca28a3d40356efa4a0fa2a7a8d498701
 </resources>
