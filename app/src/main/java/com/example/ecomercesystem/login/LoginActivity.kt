@@ -1,7 +1,8 @@
-package com.example.ecomercesystem
+package com.example.ecomercesystem.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.ecomercesystem.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

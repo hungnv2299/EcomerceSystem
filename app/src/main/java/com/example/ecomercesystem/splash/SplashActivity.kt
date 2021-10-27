@@ -1,9 +1,11 @@
-package com.example.ecomercesystem
+package com.example.ecomercesystem.splash
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.example.ecomercesystem.login.LoginActivity
+import com.example.ecomercesystem.R
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

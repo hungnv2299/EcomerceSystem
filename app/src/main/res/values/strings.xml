@@ -2,4 +2,27 @@
     <string name="app_name">EcomerceSystem</string>
     <string name="splash_text">Apparel</string>
     <string name="a">A</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_to_apparel">Login to apparel</string>
+    <string name="forgot_pass">Forgot password?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="detail">Trendy, youthful and innovative are what you can expect from the smart fashion for men, women and children from United Colors of Benetton. Cool track pants, stylish T-shirts, colourful backpacks, floral print trousers, canvas boat shoes – browse through the brand’s collection on AJIO to explore the latest in high street fashion.
+</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="season_sale">SEASON SALE</string>
+    <string name="sale_off_text">UP TO 25% OFF</string>
+    <string name="term">Terms &amp; Conditions apply*</string>
+    <string name="tshirt">Tshirt</string>
+    <string name="hoodie">Hoodie</string>
+    <string name="jeans">Jeans</string>
+    <string name="shorts">Shorts</string>
+    <string name="sweater">Sweater</string>
+    <string name="tracks">Tracks</string>
+    <string name="socks">Socks</string>
+    <string name="underwear">Underwears</string>
 </resources>

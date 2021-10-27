@@ -10,13 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcomerceSystem">
         <activity
-            android:name=".LoginActivity"
+            android:name=".ProductDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".ProductActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".login.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,6 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

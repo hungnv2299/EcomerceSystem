@@ -8,7 +8,7 @@
 
     <ScrollView
         android:scrollbars="none"
-        android:id="@+id/sv_categories_men_fragment_home"
+        android:id="@+id/sv_categories_women_fragment_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
@@ -29,7 +29,7 @@
                 android:background="@drawable/season_sale_bg">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_season_sale_men"
+                    android:id="@+id/tv_season_sale_women"
                     style="@style/season_sale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -38,11 +38,11 @@
                     android:text="@string/season_sale" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_upto_men"
+                    android:id="@+id/tv_upto_women"
                     style="@style/up_to_25_off"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_season_sale_men"
+                    android:layout_below="@id/tv_season_sale_women"
                     android:layout_marginStart="@dimen/dimen30dp"
                     android:text="@string/sale_off_text" />
 
@@ -50,26 +50,12 @@
                     style="@style/term"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tv_upto_men"
+                    android:layout_below="@id/tv_upto_women"
                     android:layout_marginStart="@dimen/dimen30dp"
                     android:layout_marginTop="@dimen/dimen20dp"
                     android:text="@string/term" />
 
-                <!--            <ImageView-->
-                <!--                android:layout_width="163dp"-->
-                <!--                android:layout_height="144dp"-->
-                <!--                android:src="@drawable/triangle"-->
-                <!--                android:layout_alignParentEnd="true"-->
-                <!--                android:layout_marginEnd="-40dp"-->
-                <!--                android:layout_marginTop="-20dp"/>-->
 
-                <!--            <ImageView-->
-                <!--                android:layout_width="163dp"-->
-                <!--                android:layout_height="80dp"-->
-                <!--                android:layout_alignParentEnd="true"-->
-                <!--                android:layout_alignParentBottom="true"-->
-                <!--                android:layout_marginEnd="-30dp"-->
-                <!--                android:src="@drawable/triangle2" />-->
             </RelativeLayout>
 
 
@@ -107,7 +93,7 @@
                     app:layout_constraintGuide_percent="0.75" />
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_categories_men_tshirt"
+                    android:id="@+id/btn_categories_women_tshirt"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen10dp"
@@ -129,7 +115,7 @@
                             android:layout_width="@dimen/dimen60dp"
                             android:layout_height="@dimen/dimen60dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/tshirt_icon" />
+                            android:src="@drawable/tshirt_women" />
                         <TextView
                             android:layout_margin="5dp"
                             style="@style/categories"
@@ -143,7 +129,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_categories_men_jeans"
+                    android:id="@+id/btn_categories_women_jeans"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen10dp"
@@ -165,7 +151,7 @@
                             android:layout_width="@dimen/dimen60dp"
                             android:layout_height="@dimen/dimen60dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/jeans" />
+                            android:src="@drawable/jeans_wm" />
                         <TextView
                             android:layout_margin="5dp"
                             style="@style/categories"
@@ -179,7 +165,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_categories_men_sweater"
+                    android:id="@+id/btn_categories_women_sweater"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen10dp"
@@ -215,7 +201,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_categories_men_socks"
+                    android:id="@+id/btn_categories_women_socks"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen10dp"
@@ -251,7 +237,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_categories_men_hoodie"
+                    android:id="@+id/btn_categories_women_hoodie"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen10dp"
@@ -287,7 +273,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_categories_men_shorts"
+                    android:id="@+id/btn_categories_women_shorts"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen10dp"
@@ -307,7 +293,7 @@
                             android:layout_width="@dimen/dimen60dp"
                             android:layout_height="@dimen/dimen60dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/shorts"
+                            android:src="@drawable/wm_shorts"
                             app:tint="@color/accent" />
 
                         <TextView
@@ -321,7 +307,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_categories_men_pants"
+                    android:id="@+id/btn_categories_women_pants"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen10dp"
@@ -357,7 +343,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/btn_categories_men_underwear"
+                    android:id="@+id/btn_categories_women_underwear"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_margin="@dimen/dimen10dp"
@@ -377,7 +363,7 @@
                             android:layout_width="@dimen/dimen60dp"
                             android:layout_height="@dimen/dimen60dp"
                             android:layout_gravity="center_horizontal"
-                            android:src="@drawable/underwear_men"
+                            android:src="@drawable/underwear_women"
                             app:tint="@color/accent" />
 
                         <TextView

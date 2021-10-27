@@ -10,4 +10,11 @@
     <color name="white">#FFF9FAFB</color>
     <color name="background">#E5E5E5</color>
     <color name="accent">#FF6C70EB</color>
+    <color name="hint">#A8AFB9</color>
+    <color name="line">#C8C8C8</color>
+    <color name="border">#E4E4E4</color>
+    <color name="price">#7E040415</color>
+    <color name="dont_have_account">#9E9E9E</color>
+    <color name="detail_product">#669E9E9E</color>
+    <color name="sale_off_text">#7BCFFF</color>
 </resources>
