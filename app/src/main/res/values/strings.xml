@@ -13,7 +13,6 @@
     <string name="detail">Trendy, youthful and innovative are what you can expect from the smart fashion for men, women and children from United Colors of Benetton. Cool track pants, stylish T-shirts, colourful backpacks, floral print trousers, canvas boat shoes – browse through the brand’s collection on AJIO to explore the latest in high street fashion.
 </string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="season_sale">SEASON SALE</string>
     <string name="sale_off_text">UP TO 25% OFF</string>
     <string name="term">Terms &amp; Conditions apply*</string>
@@ -39,4 +38,5 @@
     <string name="total_price">Total Price:</string>
     <string name="_3_items">(3 items)</string>
     <string name="checkout">Checkout</string>
+    <string name="login_fail">Invalid username or password</string>
 </resources>

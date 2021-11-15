@@ -1,4 +1,6 @@
 package com.example.ecomercesystem.categories
 
-class CategoriesViewModel {
+import androidx.lifecycle.ViewModel
+
+class CategoriesViewModel:ViewModel() {
 }

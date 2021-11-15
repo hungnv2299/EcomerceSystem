@@ -1,4 +1,6 @@
 package com.example.ecomercesystem.home
 
-class HomeViewModel {
+import androidx.lifecycle.ViewModel
+
+class HomeViewModel : ViewModel() {
 }

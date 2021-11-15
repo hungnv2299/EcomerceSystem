@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="309dp"
-    android:layout_marginStart="@dimen/dimen_15dp"
-    android:layout_height="239dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <View
-        android:layout_alignParentBottom="true"
+    <data>
+        <variable
+            name="categoriesItem"
+            type="com.example.ecomercesystem.model.HomeCategoriesItem" />
+    </data>
+
+    <RelativeLayout
         android:layout_width="309dp"
-        android:layout_height="186dp"
-        android:layout_gravity="bottom"
-        android:background="@drawable/item_categories_bg" />
+        android:layout_marginStart="@dimen/dimen_10dp"
+        android:layout_marginEnd="@dimen/dimen_10dp"
+        android:layout_height="239dp">
 
-    <TextView
-        android:fontFamily="@font/regular"
-        android:padding="@dimen/dimen_20dp"
-        android:layout_centerVertical="true"
-        android:textSize="@dimen/dimen_26dp"
-        android:textColor="@color/white"
-        android:text="@string/men"
-        android:id="@+id/tv_categories_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <View
+            android:layout_alignParentBottom="true"
+            android:layout_width="309dp"
+            android:layout_height="186dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/item_categories_bg" />
 
-    <ImageView
-        android:id="@+id/iv_categories_home"
-        android:layout_width="189dp"
-        android:layout_height="239dp"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/dimen_15dp"
-        android:src="@drawable/ic_men" />
+        <TextView
+            android:fontFamily="@font/bold"
+            android:padding="@dimen/dimen_20dp"
+            android:layout_centerVertical="true"
+            android:textSize="@dimen/dimen_26dp"
+            android:textColor="@color/white"
+            android:text="@{categoriesItem.name}"
+            android:id="@+id/tv_categories_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/iv_categories_home"
+            android:layout_width="189dp"
+            android:layout_height="239dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="@dimen/dimen_15dp"
+            android:src="@drawable/ic_men" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
+</layout>

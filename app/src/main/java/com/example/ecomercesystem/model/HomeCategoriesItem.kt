@@ -1,4 +1,3 @@
 package com.example.ecomercesystem.model
 
-class HomeCategoriesItem {
-}
+data class HomeCategoriesItem(val name:String, val imgSrc:String)

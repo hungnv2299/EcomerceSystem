@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
-class HomeFragment : Fragment() {
+class CategoriesMenFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.home_screen_fargment, container, false)
+        return inflater.inflate(R.layout.categories_men_fragment, container, false)
     }
 }
