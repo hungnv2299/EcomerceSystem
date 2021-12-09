@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecomercesystem.databinding.ItemCategotiesHomeBinding
-import com.example.ecomercesystem.model.HomeCategoriesItem
+import com.example.ecomercesystem.data.model.HomeCategoriesItem
 
 class HomeCategoriesRcvAdapter(private val data:List<HomeCategoriesItem>):RecyclerView.Adapter<HomeCategoriesRcvAdapter.HomeCategoriesRcvViewHolder>() {
 

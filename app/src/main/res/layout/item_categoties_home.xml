@@ -4,7 +4,7 @@
     <data>
         <variable
             name="categoriesItem"
-            type="com.example.ecomercesystem.model.HomeCategoriesItem" />
+            type="com.example.ecomercesystem.data.model.HomeCategoriesItem" />
     </data>
 
     <RelativeLayout

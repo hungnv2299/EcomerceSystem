@@ -13,6 +13,6 @@ class CheckoutFragment:Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        return super.onCreateView(inflater, container, savedInstanceState)
+        return inflater.inflate(R.layout.checkout_page, container, false)
     }
 }

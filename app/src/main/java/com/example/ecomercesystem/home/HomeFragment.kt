@@ -10,11 +10,10 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ecomercesystem.CategoriesKidFragment
 import com.example.ecomercesystem.R
 import com.example.ecomercesystem.categories.CategoriesFragment
 import com.example.ecomercesystem.databinding.HomeScreenFargmentBinding
-import com.example.ecomercesystem.model.HomeCategoriesItem
+import com.example.ecomercesystem.data.model.HomeCategoriesItem
 
 class HomeFragment : Fragment() {
     lateinit var viewModel: HomeViewModel
@@ -44,6 +43,7 @@ class HomeFragment : Fragment() {
 
         binding.btnMenuToolbar.setOnClickListener {
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left)
             transaction.replace(R.id.fragment_container_main, categoriesFragment)
                 .addToBackStack(null)
                 .commit()

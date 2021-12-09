@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
     private val favoriteFragment = CategoriesMenFragment()
-    private val checkoutFragment = CategoriesWomenFragment()
+    private val checkoutFragment = CheckoutFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

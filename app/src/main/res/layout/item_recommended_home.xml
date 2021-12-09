@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="@dimen/dimen_178dp">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
     <ImageView
         android:layout_centerHorizontal="true"
         android:id="@+id/iv_item_recommended_home"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="178dp"
         android:background="@drawable/item_recommended_bg"
         android:src="@drawable/iv_recomended" />
 
@@ -22,5 +22,25 @@
         android:background="@drawable/elipse"
         android:padding="@dimen/dimen_6dp"
         android:src="@drawable/heart_filled" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="abc"
+        android:layout_below="@id/iv_item_recommended_home"
+        android:textSize="16sp"
+        style="@style/login_to_apparel"
+        android:layout_marginTop="5dp"
+        android:id="@+id/tv_name_recommended_home"/>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="abc"
+        android:layout_below="@id/tv_name_recommended_home"
+        android:textSize="16sp"
+        style="@style/dont_have_account"
+        android:layout_marginTop="5dp"
+        android:id="@+id/tv_price_recommended_home"/>
+
+
 
 </RelativeLayout>
