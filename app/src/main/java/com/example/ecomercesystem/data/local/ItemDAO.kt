@@ -9,11 +9,11 @@ interface ItemDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addItem(item: Item)
     @Query("SELECT * FROM items")
-    fun selectAllItems(): LiveData<List<Item>>
+    fun selectAllItems(): List<Item>
     @Query("SELECT * FROM items WHERE category = :categories")
-    fun selectItemsbyCategories(categories:String):LiveData<List<Item>>
+    fun selectItemsbyCategories(categories:String):List<Item>
     @Query("SELECT * FROM items WHERE type = :type")
-    fun selectItemsbyType(type:String):LiveData<List<Item>>
+    fun selectItemsbyType(type:String):List<Item>
     @Delete
     suspend fun deleteItem(item: Item)
 

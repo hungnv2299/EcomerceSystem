@@ -1,28 +1,38 @@
 package com.example.ecomercesystem.home
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ecomercesystem.R
 import com.example.ecomercesystem.databinding.ItemCategotiesHomeBinding
 import com.example.ecomercesystem.data.model.HomeCategoriesItem
+import kotlinx.android.synthetic.main.item_categoties_home.view.*
 
 class HomeCategoriesRcvAdapter(private val data:List<HomeCategoriesItem>):RecyclerView.Adapter<HomeCategoriesRcvAdapter.HomeCategoriesRcvViewHolder>() {
 
-    inner class HomeCategoriesRcvViewHolder(private val binding:ItemCategotiesHomeBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item: HomeCategoriesItem){
-            binding.categoriesItem = item
-        }
-    }
+    inner class HomeCategoriesRcvViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
+
+//        fun bind(item: HomeCategoriesItem){
+//            binding.categoriesItem = item
+//        }
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoriesRcvViewHolder {
-        val inflater = LayoutInflater.from(parent.context)
-
-        val listItemBinding = ItemCategotiesHomeBinding.inflate(inflater, parent, false)
-        return HomeCategoriesRcvViewHolder(listItemBinding)
+        return HomeCategoriesRcvViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.item_categoties_home,
+                parent,
+                false
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: HomeCategoriesRcvViewHolder, position: Int) {
-        holder.bind(data[position])
+        val itemRcm = data[position]
+        holder.itemView.apply {
+            tv_categories_home.text = itemRcm.name
+        }
     }
 
     override fun getItemCount(): Int {

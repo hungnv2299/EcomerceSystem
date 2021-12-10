@@ -3,10 +3,12 @@ package com.example.ecomercesystem
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.example.ecomercesystem.data.ItemVIewModel
 import com.example.ecomercesystem.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    lateinit var itemViewMdel:ItemVIewModel
     private val homeFragment = HomeFragment()
     private val favoriteFragment = CategoriesMenFragment()
     private val checkoutFragment = CheckoutFragment()

@@ -11,7 +11,7 @@ data class Item(
     val category:String,
     val type:String,
     val price:Double,
-    val rating:Float,
+    val rating: Double,
     val detail:String
 )
 {
