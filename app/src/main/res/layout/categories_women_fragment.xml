@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:scrollbars="none"
+        android:id="@+id/sv_categories_women_fragment_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/btn_season_sales"
+                android:layout_width="match_parent"
+                android:layout_height="144dp"
+
+                android:layout_marginStart="@dimen/dimen20dp"
+                android:layout_marginTop="@dimen/dimen20dp"
+                android:layout_marginEnd="@dimen/dimen20dp"
+                android:background="@drawable/season_sale_bg">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_season_sale_women"
+                    style="@style/season_sale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dimen30dp"
+                    android:layout_marginTop="@dimen/dimen30dp"
+                    android:text="@string/season_sale" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_upto_women"
+                    style="@style/up_to_25_off"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_season_sale_women"
+                    android:layout_marginStart="@dimen/dimen30dp"
+                    android:text="@string/sale_off_text" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    style="@style/term"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_upto_women"
+                    android:layout_marginStart="@dimen/dimen30dp"
+                    android:layout_marginTop="@dimen/dimen20dp"
+                    android:text="@string/term" />
+
+
+            </RelativeLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:layout_margin="@dimen/dimen10dp">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_horizontal_50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_horizontal_25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.25" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline_horizontal_75"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.75" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_categories_women_tshirt"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen10dp"
+                    app:cardCornerRadius="@dimen/dimen15dp"
+                    app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_25"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+                    app:layout_constraintRight_toRightOf="@id/guideline_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            app:tint="@color/accent"
+                            android:layout_width="@dimen/dimen60dp"
+                            android:layout_height="@dimen/dimen60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/tshirt_women" />
+                        <TextView
+                            android:layout_margin="5dp"
+                            style="@style/categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/tshirt" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_categories_women_jeans"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen10dp"
+                    app:cardCornerRadius="@dimen/dimen15dp"
+                    app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_50"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+                    app:layout_constraintRight_toRightOf="@id/guideline_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/guideline_horizontal_25">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            app:tint="@color/accent"
+                            android:layout_width="@dimen/dimen60dp"
+                            android:layout_height="@dimen/dimen60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/jeans_wm" />
+                        <TextView
+                            android:layout_margin="5dp"
+                            style="@style/categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/jeans" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_categories_women_sweater"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen10dp"
+                    app:cardCornerRadius="@dimen/dimen15dp"
+                    app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_75"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+                    app:layout_constraintRight_toRightOf="@id/guideline_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/guideline_horizontal_50">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            app:tint="@color/accent"
+                            android:layout_width="@dimen/dimen60dp"
+                            android:layout_height="@dimen/dimen60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/sweater" />
+                        <TextView
+                            android:layout_margin="5dp"
+                            style="@style/categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/sweater" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_categories_women_socks"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen10dp"
+                    app:cardCornerRadius="@dimen/dimen15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline_vertical"
+                    app:layout_constraintRight_toRightOf="@id/guideline_vertical"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/guideline_horizontal_75">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            app:tint="@color/accent"
+                            android:layout_width="@dimen/dimen60dp"
+                            android:layout_height="@dimen/dimen60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/socks" />
+                        <TextView
+                            android:layout_margin="5dp"
+                            style="@style/categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/socks" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_categories_women_hoodie"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen10dp"
+                    app:cardCornerRadius="@dimen/dimen15dp"
+                    app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_25"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/guideline_vertical"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen60dp"
+                            android:layout_height="@dimen/dimen60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/hoodie"
+                            app:tint="@color/accent" />
+
+                        <TextView
+                            style="@style/categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:text="@string/hoodie" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_categories_women_shorts"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen10dp"
+                    app:cardCornerRadius="@dimen/dimen15dp"
+                    app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_50"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/guideline_vertical"
+                    app:layout_constraintTop_toTopOf="@id/guideline_horizontal_25">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen60dp"
+                            android:layout_height="@dimen/dimen60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/wm_shorts"
+                            app:tint="@color/accent" />
+
+                        <TextView
+                            style="@style/categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:text="@string/shorts" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_categories_women_pants"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen10dp"
+                    app:cardCornerRadius="@dimen/dimen15dp"
+                    app:layout_constraintBottom_toTopOf="@id/guideline_horizontal_75"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/guideline_vertical"
+                    app:layout_constraintTop_toTopOf="@id/guideline_horizontal_50">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen60dp"
+                            android:layout_height="@dimen/dimen60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/pants"
+                            app:tint="@color/accent" />
+
+                        <TextView
+                            style="@style/categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:text="@string/tracks" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_categories_women_underwear"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/dimen10dp"
+                    app:cardCornerRadius="@dimen/dimen15dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/guideline_vertical"
+                    app:layout_constraintTop_toTopOf="@id/guideline_horizontal_75">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen60dp"
+                            android:layout_height="@dimen/dimen60dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/underwear_women"
+                            app:tint="@color/accent" />
+
+                        <TextView
+                            style="@style/categories"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_margin="5dp"
+                            android:text="@string/underwear" />
+                    </LinearLayout>
+
+
+                </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

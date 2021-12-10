@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ProductActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_product_page"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/btn_back_product_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_margin="0dp"
+            android:src="@drawable/ic_back"
+            app:tint="@color/black" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:cardElevation="0dp"
+            android:layout_margin="15dp">
+            <ImageView
+                android:id="@+id/btn_cart_product_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_cart"
+                app:tint="@color/black" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_gravity="end|top"
+                android:background="@drawable/dot_bg"/>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dimen20dp"
+        android:layout_marginTop="@dimen/dimen10dp"
+        android:layout_marginEnd="@dimen/dimen20dp"
+        android:layout_weight="3.5"
+        app:cardCornerRadius="@dimen/dimen20dp">
+
+        <ImageView
+            android:id="@+id/iv_product_page"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/demo_product" />
+
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name_product_page"
+            style="@style/product_page_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/dimen20dp"
+
+            android:text="Black Zipper" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_price_product_page"
+            style="@style/product_page_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_name_product_page"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="@dimen/dimen20dp"
+            android:text="$1.000" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_rating_product_page"
+            style="@style/product_page_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="top|end"
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:layout_marginEnd="@dimen/dimen20dp"
+            android:drawableEnd="@drawable/ic_rating"
+            android:drawablePadding="@dimen/dimen5dp"
+            android:drawableTint="@color/accent"
+            android:text="4.0/5" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen64dp"
+            android:background="@drawable/button_bg"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/dimen20dp"
+            android:text="@string/add_to_cart"
+            android:textAppearance="@style/login_btn"
+            android:id="@+id/btn_add_to_cart"/>
+    </RelativeLayout>
+</LinearLayout>

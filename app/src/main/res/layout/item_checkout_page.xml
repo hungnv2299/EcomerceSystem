@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dimen_16dp"
+    android:background="@drawable/item_checkout_page_bg"
+    android:padding="5dp">
+
+    <ImageView
+        android:id="@+id/iv_item_favor_saved_checkout"
+        android:layout_width="@dimen/dimen_100dp"
+        android:layout_height="@dimen/dimen_100dp"
+        android:src="@drawable/iv_item_favor_saved_checkout_page" />
+
+    <TextView
+        android:id="@+id/tv_checkout_item"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_5dp"
+        android:layout_toRightOf="@id/iv_item_favor_saved_checkout"
+        android:text="@string/olive_zip_front_jacket"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dimen_16dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/ic_delete"
+        android:layout_width="@dimen/dimen_28dp"
+        android:layout_height="@dimen/dimen_28dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/dimen_20dp"
+        android:src="@drawable/ic_baseline_delete_outline_24" />
+
+    <TextView
+        android:id="@+id/tv_checkout_price_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_checkout_item"
+        android:layout_alignStart="@id/tv_checkout_item"
+        android:layout_marginTop="@dimen/dimen_4dp"
+        android:alpha="0.5"
+        android:text="RS. 3,499"
+        android:textColor="#040415" />
+
+    <TableLayout android:layout_marginTop="@dimen/dimen_14dp"
+        android:layout_alignLeft="@id/tv_checkout_price_item"
+        android:layout_below="@id/tv_checkout_price_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow >
+
+            <ImageView
+                android:id="@+id/ic_plus"
+                android:layout_width="@dimen/dimen_18dp"
+                android:layout_height="@dimen/dimen_18dp"
+                android:src="@drawable/ic_circle_plus" />
+
+            <TextView
+                android:layout_marginEnd="@dimen/dimen_10dp"
+                android:layout_marginStart="@dimen/dimen_10dp"
+                android:textSize="@dimen/dimen_12dp"
+                android:textColor="@color/black"
+                android:id="@+id/tv_number"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_18dp"
+                android:text="1" />
+
+            <ImageView
+                android:id="@+id/ic_minus"
+                android:layout_width="@dimen/dimen_18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_circle_minus" />
+        </TableRow>
+    </TableLayout>
+
+
+</RelativeLayout>

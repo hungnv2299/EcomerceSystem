@@ -2,4 +2,41 @@
     <string name="app_name">EcomerceSystem</string>
     <string name="splash_text">Apparel</string>
     <string name="a">A</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_to_apparel">Login to apparel</string>
+    <string name="forgot_pass">Forgot password?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="detail">Trendy, youthful and innovative are what you can expect from the smart fashion for men, women and children from United Colors of Benetton. Cool track pants, stylish T-shirts, colourful backpacks, floral print trousers, canvas boat shoes – browse through the brand’s collection on AJIO to explore the latest in high street fashion.
+</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="season_sale">SEASON SALE</string>
+    <string name="sale_off_text">UP TO 25% OFF</string>
+    <string name="term">Terms &amp; Conditions apply*</string>
+    <string name="tshirt">Tshirt</string>
+    <string name="hoodie">Hoodie</string>
+    <string name="jeans">Jeans</string>
+    <string name="shorts">Shorts</string>
+    <string name="sweater">Sweater</string>
+    <string name="tracks">Tracks</string>
+    <string name="socks">Socks</string>
+    <string name="underwear">Underwears</string>
+    <string name="hint_seachbox">Search for tshirts. jean, shorts, jackets</string>
+    <string name="men">men</string>
+    <string name="recommended">Recommended</string>
+    <string name="see_all">See all</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="apparel">Apparel</string>
+    <string name="Cart">Cart</string>
+    <string name="olive_zip_front_jacket">Olive Zip-Front Jacket</string>
+    <string name="subtotal">Subtotal:</string>
+    <string name="shipping">Shipping:</string>
+    <string name="total_price">Total Price:</string>
+    <string name="_3_items">(3 items)</string>
+    <string name="checkout">Checkout</string>
+    <string name="login_fail">Invalid username or password</string>
 </resources>
