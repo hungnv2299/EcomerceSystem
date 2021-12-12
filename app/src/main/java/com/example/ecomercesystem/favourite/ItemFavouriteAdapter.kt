@@ -1,4 +1,4 @@
-package com.example.ecomercesystem.home
+package com.example.ecomercesystem.favourite
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,34 +11,25 @@ import com.bumptech.glide.Glide
 import com.example.ecomercesystem.R
 import com.example.ecomercesystem.data.model.HomeCategoriesItem
 import com.example.ecomercesystem.data.model.Item
+import com.example.ecomercesystem.data.model.ItemFavor
+import kotlinx.android.synthetic.main.item_favourite.view.*
+import kotlinx.android.synthetic.main.item_home_full.view.*
+import kotlinx.android.synthetic.main.item_home_full.view.iv_item_home_full
 import kotlinx.android.synthetic.main.item_recommended_home.view.*
 
-class ItemHomeAdapter(
+class ItemFavouriteAdapter(
     val context: Context,
-    val itemClickListener: ItemClickInterface
+    val itemClickListener: ItemClickInterfaceFavourite
 ) :
-    RecyclerView.Adapter<ItemHomeAdapter.ItemViewHolder>() {
+    RecyclerView.Adapter<ItemFavouriteAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
-    private val list = ArrayList<Item>()
-//
-//    private val diffCallBack = object : DiffUtil.ItemCallback<Item>(){
-//        override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
-//            return oldItem.name == newItem.name
-//        }
-//
-//        override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
-//            return oldItem == newItem
-//        }
-//    }
-//
-//    val diff = AsyncListDiffer(this, diffCallBack)
-
+    private val list = ArrayList<ItemFavor>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_recommended_home,
+            R.layout.item_favourite,
             parent,
             false
         )
@@ -48,11 +39,12 @@ class ItemHomeAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = list[position]
         holder.itemView.apply {
-            Glide.with(this).load(item.imgsrc).into(iv_item_recommended_home)
-            tv_name_recommended_home.text = item.name
-            tv_price_recommended_home.text = "$" + item.price.toString()
-            favorite_ic_recommended_home.setOnClickListener {
-                itemClickListener.OnFavorIconClick(item)
+            Glide.with(this).load(item.imgsrc).into(iv_favourite)
+            tv_favourite_name.text = item.name
+            tv_favourite_price_item.text = "Rs. " + item.price.toString()
+            tv_rating_favourite.text = item.rating.toString()+"/5"
+            ic_delete_favourite.setOnClickListener {
+                itemClickListener.OnDeleteBtnClick(item)
             }
             setOnClickListener {
                 itemClickListener.OnItemClick(item)
@@ -64,7 +56,7 @@ class ItemHomeAdapter(
         return list.size
     }
 
-    fun updateList(newList : List<Item>){
+    fun updateList(newList : List<ItemFavor>){
         list.clear()
         list.addAll(newList)
         notifyDataSetChanged()
@@ -73,7 +65,9 @@ class ItemHomeAdapter(
 
 }
 
-interface ItemClickInterface {
-    fun OnItemClick(item: Item)
-    fun OnFavorIconClick(item: Item)
+interface ItemClickInterfaceFavourite {
+    fun OnItemClick(item: ItemFavor)
+    fun OnDeleteBtnClick(item:ItemFavor)
 }
+
+

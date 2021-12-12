@@ -99,14 +99,18 @@
             android:drawablePadding="@dimen/dimen5dp"
             android:drawableTint="@color/accent"
             android:text="4.0/5" />
+
         <Button
+            android:id="@+id/btn_add_to_cart_productpage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen64dp"
-            android:background="@drawable/button_bg"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/dimen20dp"
+            android:layout_marginStart="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:layout_marginEnd="@dimen/dimen20dp"
+            android:layout_marginBottom="@dimen/dimen20dp"
+            android:background="@drawable/button_bg"
             android:text="@string/add_to_cart"
-            android:textAppearance="@style/login_btn"
-            android:id="@+id/btn_add_to_cart"/>
+            android:textAppearance="@style/login_btn" />
     </RelativeLayout>
 </LinearLayout>

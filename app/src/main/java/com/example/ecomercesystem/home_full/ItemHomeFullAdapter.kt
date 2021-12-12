@@ -1,4 +1,4 @@
-package com.example.ecomercesystem.home
+package com.example.ecomercesystem.home_full
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -11,13 +11,14 @@ import com.bumptech.glide.Glide
 import com.example.ecomercesystem.R
 import com.example.ecomercesystem.data.model.HomeCategoriesItem
 import com.example.ecomercesystem.data.model.Item
+import kotlinx.android.synthetic.main.item_home_full.view.*
 import kotlinx.android.synthetic.main.item_recommended_home.view.*
 
-class ItemHomeAdapter(
+class ItemHomeFullAdapter(
     val context: Context,
-    val itemClickListener: ItemClickInterface
+    val itemClickListener: ItemClickInterfaceFull
 ) :
-    RecyclerView.Adapter<ItemHomeAdapter.ItemViewHolder>() {
+    RecyclerView.Adapter<ItemHomeFullAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -38,7 +39,7 @@ class ItemHomeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(
-            R.layout.item_recommended_home,
+            R.layout.item_home_full,
             parent,
             false
         )
@@ -48,11 +49,11 @@ class ItemHomeAdapter(
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = list[position]
         holder.itemView.apply {
-            Glide.with(this).load(item.imgsrc).into(iv_item_recommended_home)
-            tv_name_recommended_home.text = item.name
-            tv_price_recommended_home.text = "$" + item.price.toString()
-            favorite_ic_recommended_home.setOnClickListener {
-                itemClickListener.OnFavorIconClick(item)
+            Glide.with(this).load(item.imgsrc).into(iv_item_home_full)
+            tv_name_item_home_full.text = item.name
+            tv_price_item_home_full.text = "Rs. " + item.price.toString()
+            btn_add_item_home_full.setOnClickListener {
+                itemClickListener.OnAddBtnClick(item)
             }
             setOnClickListener {
                 itemClickListener.OnItemClick(item)
@@ -73,7 +74,9 @@ class ItemHomeAdapter(
 
 }
 
-interface ItemClickInterface {
+interface ItemClickInterfaceFull {
     fun OnItemClick(item: Item)
-    fun OnFavorIconClick(item: Item)
+    fun OnAddBtnClick(item:Item)
 }
+
+
