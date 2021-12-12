@@ -1,5 +1,6 @@
 package com.example.ecomercesystem.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,11 @@ import com.example.ecomercesystem.databinding.ItemCategotiesHomeBinding
 import com.example.ecomercesystem.data.model.HomeCategoriesItem
 import kotlinx.android.synthetic.main.item_categoties_home.view.*
 
-class HomeCategoriesRcvAdapter(private val data:List<HomeCategoriesItem>):RecyclerView.Adapter<HomeCategoriesRcvAdapter.HomeCategoriesRcvViewHolder>() {
+class HomeCategoriesRcvAdapter(
+    val context:Context,
+    val categoriesHomeClickListener:CategoriesHomeClickInterface):RecyclerView.Adapter<HomeCategoriesRcvAdapter.HomeCategoriesRcvViewHolder>() {
+
+    val list = ArrayList<HomeCategoriesItem>()
 
     inner class HomeCategoriesRcvViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
 
@@ -19,23 +24,28 @@ class HomeCategoriesRcvAdapter(private val data:List<HomeCategoriesItem>):Recycl
 //    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeCategoriesRcvViewHolder {
-        return HomeCategoriesRcvViewHolder(
-            LayoutInflater.from(parent.context).inflate(
-                R.layout.item_categoties_home,
-                parent,
-                false
-            )
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.item_categoties_home,
+            parent,
+            false
         )
+        return HomeCategoriesRcvViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: HomeCategoriesRcvViewHolder, position: Int) {
-        val itemRcm = data[position]
+        val itemRcm = list[position]
         holder.itemView.apply {
             tv_categories_home.text = itemRcm.name
+            setOnClickListener {
+                categoriesHomeClickListener.onCategoriesHomeClick(itemRcm)
+            }
         }
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return list.size
     }
+}
+interface CategoriesHomeClickInterface{
+    fun onCategoriesHomeClick(item:HomeCategoriesItem)
 }

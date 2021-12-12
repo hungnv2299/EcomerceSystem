@@ -4,17 +4,52 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 import androidx.room.OnConflictStrategy.IGNORE
 import com.example.ecomercesystem.data.model.Item
+import com.example.ecomercesystem.data.model.ItemCart
+import com.example.ecomercesystem.data.model.ItemFavor
+
 @Dao
 interface ItemDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun addItem(item: Item)
+    fun addItem(item: Item)
+
     @Query("SELECT * FROM items")
     fun selectAllItems(): List<Item>
+
     @Query("SELECT * FROM items WHERE category = :categories")
     fun selectItemsbyCategories(categories:String):List<Item>
-    @Query("SELECT * FROM items WHERE type = :type")
-    fun selectItemsbyType(type:String):List<Item>
+
+    @Query("SELECT * FROM items WHERE type = :type and category=:categories")
+    fun selectItemsbyType(categories:String, type:String):List<Item>
+
     @Delete
-    suspend fun deleteItem(item: Item)
+    fun deleteItem(item: Item)
+
+    @Query("SELECT * FROM items WHERE name=:name")
+    fun selectByName(name:String): List<Item>
+
+    @Query("SELECT * FROM items LIMIT 6")
+    fun selectRecommended() : List<Item>
+
+    @Insert
+    fun addToFavor(itemFavor: ItemFavor)
+
+    @Query("SELECT * FROM favourite")
+    fun selectAllFavor():List<ItemFavor>
+
+    @Delete
+    fun deleteFromFavor(itemFavor: ItemFavor)
+
+    @Insert
+    fun addToCart(itemCart:ItemCart)
+
+    @Query("SELECT * FROM cart")
+    fun selectAllCart():List<ItemCart>
+
+    @Delete
+    fun deleteFromCart(itemCart: ItemCart)
+
+    @Query("SELECT SUM(price) FROM cart")
+    fun selectSumCart() : Double
+
 
 }

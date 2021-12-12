@@ -5,14 +5,16 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.ecomercesystem.data.model.Item
+import com.example.ecomercesystem.data.model.ItemCart
+import com.example.ecomercesystem.data.model.ItemFavor
 
-@Database(entities = [Item::class], version = 1)
+@Database(entities = [Item::class, ItemFavor::class, ItemCart::class], version = 1)
 abstract class ItemDB : RoomDatabase() {
     abstract fun itemDAO(): ItemDAO
 
     companion object {
         @Volatile
-        private var INSTANCE: ItemDB? = null
+        var INSTANCE: ItemDB? = null
 
         fun getDB(context: Context): ItemDB {
             return INSTANCE ?: synchronized(this) {
@@ -20,7 +22,8 @@ abstract class ItemDB : RoomDatabase() {
                     context.applicationContext,
                     ItemDB::class.java,
                     "ItemDatabase"
-                ).build()
+                ).allowMainThreadQueries()
+                    .build()
                 INSTANCE = instance
                 instance
             }

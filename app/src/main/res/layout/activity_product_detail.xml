@@ -60,7 +60,7 @@
             tools:ignore="MissingConstraints">
 
             <ImageView
-                android:id="@+id/iv_product_page"
+                android:id="@+id/iv_product_page_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
@@ -76,7 +76,7 @@
         android:layout_weight="1">
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_name_product_page"
+            android:id="@+id/tv_name_product_page_detail"
             style="@style/product_page_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -87,17 +87,17 @@
             android:text="Black Zipper" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_price_product_page"
+            android:id="@+id/tv_price_product_page_detail"
             style="@style/product_page_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tv_name_product_page"
+            android:layout_below="@id/tv_name_product_page_detail"
             android:layout_gravity="top|start"
             android:layout_marginStart="@dimen/dimen20dp"
             android:text="$1.000" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_rating_product_page"
+            android:id="@+id/tv_rating_product_page_detail"
             style="@style/product_page_rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/tv_price_product_page"
+            android:layout_below="@id/tv_price_product_page_detail"
             android:layout_above="@id/btn_add_to_cart"
             style="@style/detail_product_page_detail"
             android:text="@string/detail"
