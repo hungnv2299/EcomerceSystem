@@ -139,6 +139,19 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
         return cartItems.value?.size
     }
 
+    fun itemCartMinus(name: String){
+        val dao = ItemDB.getDB(getApplication()).itemDAO()
+        dao.itemCartMinus(name)
+
+        getCartItems()
+    }
+    fun itemCartPlus(name: String){
+        val dao = ItemDB.getDB(getApplication()).itemDAO()
+        dao.itemCartPlus(name)
+
+        getCartItems()
+    }
+
 
 
 

@@ -76,10 +76,12 @@ class CartFragment : Fragment(R.layout.checkout_page), ItemClickInterfaceCart {
 
     override fun OnPlusClick(item: ItemCart) {
         Toast.makeText(requireContext(), "+", Toast.LENGTH_SHORT).show()
+        itemViewModel.itemCartPlus(item.name)
     }
 
     override fun OnMinusClick(item: ItemCart) {
         Toast.makeText(requireContext(), "_", Toast.LENGTH_SHORT).show()
+        itemViewModel.itemCartMinus(item.name)
     }
 
 }

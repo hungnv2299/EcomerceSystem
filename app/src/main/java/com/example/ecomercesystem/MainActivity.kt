@@ -11,7 +11,6 @@ import com.example.ecomercesystem.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    lateinit var itemViewMdel:ItemVIewModel
     private val homeFragment = HomeFragment()
     private val favoriteFragment = FavouriteFragment()
     private val checkoutFragment = CartFragment()
@@ -25,7 +24,10 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.menu_bottom_nav_main_home -> loadFragment(homeFragment)
                 R.id.menu_bottom_nav_main_favorite -> loadFragment(favoriteFragment)
-                R.id.menu_bottom_nav_main_cart -> loadFragment(checkoutFragment)
+                R.id.menu_bottom_nav_main_cart -> {
+                    loadFragment(checkoutFragment)
+                    itemViewModel.getCartItems()
+                }
             }
             true
         }
