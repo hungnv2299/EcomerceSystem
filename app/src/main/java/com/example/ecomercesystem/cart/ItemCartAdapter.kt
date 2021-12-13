@@ -41,6 +41,12 @@ class ItemCartAdapter(
             tv_checkout_item.text = item.name
             tv_checkout_price_item.text = "Rs. " + item.price.toString()
             tv_number.text = item.amount.toString()
+            ic_plus.setOnClickListener {
+                itemClickListener.OnPlusClick(item)
+            }
+            ic_minus.setOnClickListener {
+                itemClickListener.OnMinusClick(item)
+            }
             ic_delete.setOnClickListener {
                 itemClickListener.OnDeleteBtnClick(item)
             }

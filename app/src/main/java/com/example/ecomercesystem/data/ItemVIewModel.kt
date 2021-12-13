@@ -135,13 +135,16 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
         return dao.selectSumCart()
     }
 
-    fun getAmount():Int?{
-        return cartItems.value?.size
+    fun getAmount():Int{
+        val dao = ItemDB.getDB(getApplication()).itemDAO()
+        return dao.selectSumAmount()
     }
 
-    fun itemCartMinus(name: String){
+    fun itemCartMinus(itemCart: ItemCart){
         val dao = ItemDB.getDB(getApplication()).itemDAO()
-        dao.itemCartMinus(name)
+        if (itemCart.amount<=1)
+            deleteFromCart(itemCart)
+        dao.itemCartMinus(itemCart.name)
 
         getCartItems()
     }
