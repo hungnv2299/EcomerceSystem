@@ -2,9 +2,11 @@ package com.example.ecomercesystem
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.ecomercesystem.data.ItemVIewModel
+import com.example.ecomercesystem.data.model.ItemCart
 import kotlinx.android.synthetic.main.activity_product.*
 import kotlinx.android.synthetic.main.activity_product.iv_product_page
 import kotlinx.android.synthetic.main.activity_product.tv_name_product_page
@@ -27,5 +29,14 @@ class ProductDetailActivity : AppCompatActivity() {
         tv_price_product_page_detail.text = "Rs. "+itemViewModel.getItemByName(a!!).price.toString()
         tv_rating_product_page_detail.text = itemViewModel.getItemByName(a!!).rating.toString()+"/5"
         tv_detail_product_detail_page.text = itemViewModel.getItemByName(a!!).detail
+
+        btn_add_to_cart.setOnClickListener {
+            itemViewModel.addToCart(ItemCart(itemViewModel.getItemByName(a!!).name, itemViewModel.getItemByName(a!!).imgsrc, itemViewModel.getItemByName(a!!).price, 1))
+            Toast.makeText(this, "Added item to cart!", Toast.LENGTH_SHORT).show()
+        }
+        btn_back_product_page_detail.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 }

@@ -1,11 +1,13 @@
-package com.example.ecomercesystem.home_full
+package com.example.ecomercesystem.search
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.widget.doAfterTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -25,44 +27,63 @@ import com.example.ecomercesystem.data.model.HomeCategoriesItem
 import com.example.ecomercesystem.data.model.Item
 import com.example.ecomercesystem.data.model.ItemCart
 import com.example.ecomercesystem.data.model.ItemFavor
-import com.example.ecomercesystem.search.SearchFragment
 import kotlinx.android.synthetic.main.home_screen_fargment.*
 import kotlinx.android.synthetic.main.home_screen_full_fragment.*
+import kotlinx.android.synthetic.main.search_fragment.*
 import java.util.ArrayList
+import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
 
-class HomeFullFragment : Fragment(R.layout.home_screen_full_fragment), ItemClickInterfaceFull {
+import androidx.core.content.ContextCompat.getSystemService
+
+
+
+
+class SearchFragment : Fragment(R.layout.search_fragment), ItemClickInterfaceSearch {
     lateinit var itemViewModel: ItemVIewModel
     lateinit var manager: RecyclerView.LayoutManager
     val categoriesFragment = CategoriesFragment()
-    val searchFragment = SearchFragment()
     lateinit var dataItem: List<Item>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        itemViewModel = ViewModelProvider(this).get(ItemVIewModel::class.java)
         itemViewModel = (activity as MainActivity).itemViewModel
-//        itemViewModel.test.observe(viewLifecycleOwner, object : Observer<Any> {
-//            override fun onChanged(t: Any?) {
-//                apparel.text = t?.toString()
-//            }
-//        })
 
-        apparel_full.setOnClickListener {
-            itemViewModel.getItemsByCategories("men")
+
+
+//        et_search.requestFocus()
+        if (et_search.requestFocus()){
+            var imm:InputMethodManager = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
         }
 
+
+        et_search.doAfterTextChanged {
+
+                itemViewModel.searchByString(et_search.text.toString())
+
+
+        }
 
 
         //setup rcv items
         manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        val itemAdapter = ItemHomeFullAdapter(requireContext(), this)
-        itemViewModel.allItems.observe(viewLifecycleOwner, { list ->
+        val itemAdapter = ItemSearchAdapter(requireContext(), this)
+
+//        if (itemViewModel.searchItems.value.isNullOrEmpty()){
+//            itemViewModel.searchItems.postValue(null)
+//        }
+//        else{
+//
+//        }
+        itemViewModel.searchItems.observe(viewLifecycleOwner, { list ->
             list?.let {
                 itemAdapter.updateList(list)
+
+                Toast.makeText(context, "Update View", Toast.LENGTH_SHORT).show()
             }
         })
 
-        rcv_item_home_full?.apply {
+        rcv_search?.apply {
             adapter = itemAdapter
             layoutManager = manager
         }
@@ -73,13 +94,6 @@ class HomeFullFragment : Fragment(R.layout.home_screen_full_fragment), ItemClick
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left)
             transaction.replace(R.id.fragment_container_main, categoriesFragment)
-                .addToBackStack(null)
-                .commit()
-        }
-
-        btn_search_home_full.setOnClickListener {
-            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-            transaction.replace(R.id.fragment_container_main, searchFragment)
                 .addToBackStack(null)
                 .commit()
         }

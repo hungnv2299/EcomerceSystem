@@ -51,10 +51,18 @@ interface ItemDAO {
     @Query("SELECT SUM(price) FROM cart")
     fun selectSumCart() : Double
 
+    @Query("SELECT SUM(amount) FROM cart")
+    fun selectSumAmount() : Int
+
     @Query("update cart set amount = amount+1 where name=:name")
     fun itemCartPlus(name:String)
 
     @Query("update cart set amount = amount-1 where name=:name")
     fun itemCartMinus(name:String)
+
+    @Query("SELECT * FROM items where name like '%'||:string||'%'")
+    fun searchByString(string: String):List<Item>
+
+
 
 }

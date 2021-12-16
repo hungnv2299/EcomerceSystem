@@ -13,7 +13,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/btn_back_product_page"
+            android:id="@+id/btn_back_product_page_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
@@ -125,7 +125,10 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen64dp"
             android:layout_alignParentBottom="true"
-            android:layout_margin="@dimen/dimen20dp"
+            android:layout_marginStart="@dimen/dimen20dp"
+            android:layout_marginTop="@dimen/dimen20dp"
+            android:layout_marginEnd="@dimen/dimen20dp"
+            android:layout_marginBottom="@dimen/dimen20dp"
             android:background="@drawable/button_bg"
             android:text="@string/add_to_cart"
             android:textAppearance="@style/login_btn" />

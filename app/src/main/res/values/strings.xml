@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EcomerceSystem</string>
+    <string name="app_name">Apparel</string>
     <string name="splash_text">Apparel</string>
     <string name="a">A</string>
     <string name="hint_username">Username</string>

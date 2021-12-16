@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 
 class ItemVIewModel(application: Application) : AndroidViewModel(application) {
     var allItems: MutableLiveData<List<Item>> = MutableLiveData()
+    var searchItems: MutableLiveData<List<Item>> = MutableLiveData()
     var cartItems: MutableLiveData<List<ItemCart>> = MutableLiveData()
     var favorItems: MutableLiveData<List<ItemFavor>> = MutableLiveData()
     var recommendedItems: MutableLiveData<List<Item>> = MutableLiveData()
@@ -25,6 +26,7 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
         getAllItems()
         getFavorItems()
         getCartItems()
+
 //                allItems.postValue(listOf(
 //            Item("Ao adidas", "https://balovnxk.vn/wp-content/uploads/2017/06/balo-adidas-1.jpg", "men", "shirt", 500.0, 4.5, "abcxyz"),
 //            Item("Quan adidas", "https://cf.shopee.vn/file/78c9f55d224e5f817bffaf04670752c7", "men", "shirt", 50.0, 4.5, "abcxyz"),
@@ -135,13 +137,16 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
         return dao.selectSumCart()
     }
 
-    fun getAmount():Int?{
-        return cartItems.value?.size
+    fun getAmount():Int{
+        val dao = ItemDB.getDB(getApplication()).itemDAO()
+        return dao.selectSumAmount()
     }
 
-    fun itemCartMinus(name: String){
+    fun itemCartMinus(itemCart: ItemCart){
         val dao = ItemDB.getDB(getApplication()).itemDAO()
-        dao.itemCartMinus(name)
+        if (itemCart.amount<=1)
+            deleteFromCart(itemCart)
+        dao.itemCartMinus(itemCart.name)
 
         getCartItems()
     }
@@ -150,6 +155,17 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
         dao.itemCartPlus(name)
 
         getCartItems()
+    }
+
+    fun searchByString(string: String){
+        val dao = ItemDB.getDB(getApplication()).itemDAO()
+        val list = dao.searchByString(string)
+
+        searchItems.postValue(list)
+    }
+
+    fun removeSearchList(){
+        searchItems.postValue(null)
     }
 
 

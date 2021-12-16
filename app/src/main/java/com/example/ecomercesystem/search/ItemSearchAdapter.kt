@@ -1,4 +1,4 @@
-package com.example.ecomercesystem.home_full
+package com.example.ecomercesystem.search
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -14,27 +14,15 @@ import com.example.ecomercesystem.data.model.Item
 import kotlinx.android.synthetic.main.item_home_full.view.*
 import kotlinx.android.synthetic.main.item_recommended_home.view.*
 
-class ItemHomeFullAdapter(
+class ItemSearchAdapter(
     val context: Context,
-    val itemClickListener: ItemClickInterfaceFull
+    val itemClickListener: ItemClickInterfaceSearch
 ) :
-    RecyclerView.Adapter<ItemHomeFullAdapter.ItemViewHolder>() {
+    RecyclerView.Adapter<ItemSearchAdapter.ItemViewHolder>() {
 
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
     private val list = ArrayList<Item>()
-//
-//    private val diffCallBack = object : DiffUtil.ItemCallback<Item>(){
-//        override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
-//            return oldItem.name == newItem.name
-//        }
-//
-//        override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
-//            return oldItem == newItem
-//        }
-//    }
-//
-//    val diff = AsyncListDiffer(this, diffCallBack)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -77,7 +65,7 @@ class ItemHomeFullAdapter(
 
 }
 
-interface ItemClickInterfaceFull {
+interface ItemClickInterfaceSearch {
     fun OnItemClick(item: Item)
     fun OnAddBtnClick(item:Item)
     fun OnFavorIconClick(item:Item)
