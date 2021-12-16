@@ -11,31 +11,47 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_margin="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp">
 
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardview_img"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="15dp"
+            app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/iv_item_recommended_home"
-                android:layout_width="wrap_content"
-                android:layout_height="178dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/item_recommended_bg"
-                android:scaleType="fitCenter"
-                android:src="@drawable/iv_recomended"
-                app:layout_constraintDimensionRatio="1" />
-        </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <ImageView
+                    android:id="@+id/iv_item_recommended_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="178dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/item_recommended_bg"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/iv_recomended" />
+
+                <ImageView
+                    android:layout_alignEnd="@id/iv_item_recommended_home"
+                    android:id="@+id/favorite_ic_recommended_home"
+                    android:layout_width="@dimen/dimen_28dp"
+                    android:layout_height="@dimen/dimen_28dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/elipse"
+                    android:padding="@dimen/dimen_6dp"
+                    android:src="@drawable/heart_filled" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
 
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -60,19 +76,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_name_recommended_home" />
 
-        <ImageView
-            android:id="@+id/favorite_ic_recommended_home"
-            android:layout_width="@dimen/dimen_28dp"
-            android:layout_height="@dimen/dimen_28dp"
-            android:layout_marginTop="22dp"
-
-            android:layout_marginEnd="@dimen/dimen_28dp"
-            android:background="@drawable/elipse"
-            android:padding="@dimen/dimen_6dp"
-            android:src="@drawable/heart_filled"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardview_img" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

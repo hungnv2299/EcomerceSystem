@@ -18,16 +18,20 @@ class CategoriesMenFragment : Fragment(R.layout.categories_men_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         itemViewModel = (activity as MainActivity).itemViewModel
+        val fragmentManager = (activity as MainActivity).supportFragmentManager
         fun changeFragment(){
-            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            val transaction: FragmentTransaction = fragmentManager.beginTransaction()
             transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left)
             transaction.replace(R.id.fragment_container_main, homeFullFragment)
-//                .addToBackStack(null)
+                .addToBackStack(null)
                 .commit()
         }
         btn_categories_men_tshirt.setOnClickListener {
-            Toast.makeText(requireContext(), "test", Toast.LENGTH_SHORT).show()
             itemViewModel.getItemsByType("men", "shirt")
+            changeFragment()
+        }
+        btn_categories_men_hoodie.setOnClickListener {
+            itemViewModel.getItemsByType("men", "hoodie")
             changeFragment()
         }
     }

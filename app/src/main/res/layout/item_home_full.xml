@@ -13,13 +13,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/iv_item_home_full"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/demo_product" />
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/iv_item_home_full"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/demo_product" />
+
+            <ImageView
+                android:layout_alignEnd="@id/iv_item_home_full"
+                android:id="@+id/favorite_ic_home_full"
+                android:layout_width="@dimen/dimen_28dp"
+                android:layout_height="@dimen/dimen_28dp"
+                android:layout_alignParentTop="true"
+                android:layout_margin="10dp"
+                android:background="@drawable/elipse"
+                android:padding="@dimen/dimen_6dp"
+                android:src="@drawable/heart_filled" />
+
+        </RelativeLayout>
+
+
     </androidx.cardview.widget.CardView>
 
     <androidx.appcompat.widget.AppCompatTextView

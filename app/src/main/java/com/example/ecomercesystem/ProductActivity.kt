@@ -38,7 +38,11 @@ class ProductActivity : AppCompatActivity() {
         }
         btn_add_to_cart_productpage.setOnClickListener {
             itemViewModel.addToCart(ItemCart(itemViewModel.getItemByName(a!!).name, itemViewModel.getItemByName(a!!).imgsrc, itemViewModel.getItemByName(a!!).price, 1))
-            Toast.makeText(this, "Added to cart!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Added item to cart!", Toast.LENGTH_SHORT).show()
         }
+        btn_back_product_page.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 }
