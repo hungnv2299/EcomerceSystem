@@ -24,7 +24,10 @@ class MainActivity : AppCompatActivity() {
         bottom_nav_main.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.menu_bottom_nav_main_home -> loadFragment(homeFragment)
-                R.id.menu_bottom_nav_main_favorite -> loadFragment(favoriteFragment)
+                R.id.menu_bottom_nav_main_favorite -> {
+                    loadFragment(favoriteFragment)
+
+                }
                 R.id.menu_bottom_nav_main_cart -> {
 //                    loadFragment(checkoutFragment)
                     itemViewModel.getCartItems()

@@ -49,7 +49,7 @@ class CategoriesFragment : Fragment() {
             }
         }.attach()
         btn_back_toolbar_categories.setOnClickListener {
-            parentFragmentManager.popBackStack()
+            parentFragmentManager.popBackStackImmediate()
         }
 
         btn_search_categories.setOnClickListener {
