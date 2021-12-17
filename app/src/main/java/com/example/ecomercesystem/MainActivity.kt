@@ -1,9 +1,11 @@
 package com.example.ecomercesystem
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.ecomercesystem.cart.CartActivity
 import com.example.ecomercesystem.cart.CartFragment
 import com.example.ecomercesystem.data.ItemVIewModel
 import com.example.ecomercesystem.favourite.FavouriteFragment
@@ -25,8 +27,10 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_bottom_nav_main_home -> loadFragment(homeFragment)
                 R.id.menu_bottom_nav_main_favorite -> loadFragment(favoriteFragment)
                 R.id.menu_bottom_nav_main_cart -> {
-                    loadFragment(checkoutFragment)
+//                    loadFragment(checkoutFragment)
                     itemViewModel.getCartItems()
+                    val intent = Intent(this, CartActivity::class.java)
+                    startActivity(intent)
                 }
             }
             true
