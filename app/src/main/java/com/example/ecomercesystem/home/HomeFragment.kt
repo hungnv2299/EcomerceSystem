@@ -3,43 +3,42 @@ package com.example.ecomercesystem.home
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
-<<<<<<< HEAD
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-=======
->>>>>>> 66a58caa0be0732f4d08241083dc97f7b7cc3520
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecomercesystem.MainActivity
-import com.example.ecomercesystem.product_detail.ProductActivity
 import com.example.ecomercesystem.R
 import com.example.ecomercesystem.categories.CategoriesFragment
 import com.example.ecomercesystem.data.ItemVIewModel
+import com.example.ecomercesystem.databinding.HomeScreenFargmentBinding
 import com.example.ecomercesystem.data.model.HomeCategoriesItem
 import com.example.ecomercesystem.data.model.Item
 import com.example.ecomercesystem.data.model.ItemFavor
 import com.example.ecomercesystem.home_full.HomeFullFragment
 import com.example.ecomercesystem.search.SearchFragment
 import kotlinx.android.synthetic.main.home_screen_fargment.*
-<<<<<<< HEAD
 import kotlinx.android.synthetic.main.home_screen_full_fragment.*
 import java.util.ArrayList
 import androidx.core.content.ContextCompat.getSystemService
 
 import android.widget.EditText
 import androidx.core.content.ContextCompat
+import com.example.ecomercesystem.product_detail.ProductActivity
 
-=======
->>>>>>> 66a58caa0be0732f4d08241083dc97f7b7cc3520
 
 class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface,
-    CategoriesHomeClickInterface {
+        CategoriesHomeClickInterface {
     //    lateinit var viewModel: HomeViewModel
     lateinit var itemViewModel: ItemVIewModel
     lateinit var categoriesManager: RecyclerView.LayoutManager
@@ -51,15 +50,18 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
-//        itemViewModel = ViewModelProvider(this).get(ItemVIewModel::class.java)
         itemViewModel = (activity as MainActivity).itemViewModel
+        itemViewModel.test.observe(viewLifecycleOwner, object : Observer<Any> {
+            override fun onChanged(t: Any?) {
+                apparel.text = t?.toString()
+            }
+        })
 
         //setup rcv categories
         var data = listOf(
-            HomeCategoriesItem("men", "null"),
-            HomeCategoriesItem("women", "null"),
-            HomeCategoriesItem("kids", "null")
+                HomeCategoriesItem("men", "null"),
+                HomeCategoriesItem("women", "null"),
+                HomeCategoriesItem("kids", "null")
         )
         categoriesManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         val categoriesAdapter = HomeCategoriesRcvAdapter(requireContext(), this)
@@ -92,8 +94,8 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left)
             transaction.replace(R.id.fragment_container_main, categoriesFragment)
-                .addToBackStack(null)
-                .commit()
+                    .addToBackStack(null)
+                    .commit()
         }
 
         //chuyen tab home full
@@ -101,8 +103,8 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left)
             transaction.replace(R.id.fragment_container_main, homeFullFragment)
-                .addToBackStack(null)
-                .commit()
+                    .addToBackStack(null)
+                    .commit()
             itemViewModel.getAllItems()
         }
 
@@ -110,9 +112,8 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
         btn_search_home.setOnClickListener {
             val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
             transaction.replace(R.id.fragment_container_main, searchFragment)
-                .addToBackStack(null)
-                .commit()
-
+                    .addToBackStack(null)
+                    .commit()
         }
     }
 
@@ -137,8 +138,8 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
         val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
         transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left)
         transaction.replace(R.id.fragment_container_main, homeFullFragment)
-            .addToBackStack(null)
-            .commit()
+                .addToBackStack(null)
+                .commit()
         itemViewModel.getItemsByCategories(item.name)
     }
 }
