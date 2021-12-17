@@ -26,7 +26,6 @@ import kotlinx.android.synthetic.main.search_fragment.*
 class SearchFragment : Fragment(R.layout.search_fragment), ItemClickInterfaceSearch {
     lateinit var itemViewModel: ItemVIewModel
     lateinit var manager: RecyclerView.LayoutManager
-    val categoriesFragment = CategoriesFragment()
     lateinit var dataItem: List<Item>
 
 
@@ -65,15 +64,11 @@ class SearchFragment : Fragment(R.layout.search_fragment), ItemClickInterfaceSea
             layoutManager = manager
         }
 
-
-        //chuyen tab categories
-        btn_menu_toolbar_full?.setOnClickListener {
-            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
-            transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left)
-            transaction.replace(R.id.fragment_container_main, categoriesFragment)
-                    .addToBackStack(null)
-                    .commit()
+        btn_back_search_fragment.setOnClickListener {
+            parentFragmentManager.popBackStackImmediate()
         }
+
+
     }
 
     //item click cua rcv items

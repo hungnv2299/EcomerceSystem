@@ -55,7 +55,7 @@ class ItemHomeFullAdapter(
             btn_add_item_home_full.setOnClickListener {
                 itemClickListener.OnAddBtnClick(item)
             }
-            iv_item_home_full.setOnClickListener {
+            favorite_ic_home_full.setOnClickListener {
                 itemClickListener.OnFavorIconClick(item)
             }
             setOnClickListener {

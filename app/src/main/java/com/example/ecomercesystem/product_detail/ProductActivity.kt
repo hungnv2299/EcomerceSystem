@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.ecomercesystem.R
+import com.example.ecomercesystem.cart.CartActivity
 import com.example.ecomercesystem.data.ItemVIewModel
 import com.example.ecomercesystem.data.model.ItemCart
 import kotlinx.android.synthetic.main.activity_product.*
@@ -18,7 +19,6 @@ class ProductActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product)
         itemViewModel = ViewModelProvider(this).get(ItemVIewModel::class.java)
         val intent = intent
-        Toast.makeText(this, "Intent: "+intent.getStringExtra("name"), Toast.LENGTH_SHORT).show()
         var a = intent.getStringExtra("name")
         itemViewModel.getItemByName(intent.getStringExtra("name")!!)
         Glide.with(this).load(itemViewModel.getItemByName(a!!).imgsrc).into(iv_product_page)
@@ -36,6 +36,10 @@ class ProductActivity : AppCompatActivity() {
         }
         btn_back_product_page.setOnClickListener {
             onBackPressed()
+        }
+        btn_cart_product_page.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
         }
 
     }

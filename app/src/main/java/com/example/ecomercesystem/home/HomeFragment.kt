@@ -34,6 +34,7 @@ import androidx.core.content.ContextCompat.getSystemService
 
 import android.widget.EditText
 import androidx.core.content.ContextCompat
+import com.example.ecomercesystem.cart.CartActivity
 import com.example.ecomercesystem.product_detail.ProductActivity
 
 
@@ -51,11 +52,6 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
         super.onViewCreated(view, savedInstanceState)
 
         itemViewModel = (activity as MainActivity).itemViewModel
-        itemViewModel.test.observe(viewLifecycleOwner, object : Observer<Any> {
-            override fun onChanged(t: Any?) {
-                apparel.text = t?.toString()
-            }
-        })
 
         //setup rcv categories
         var data = listOf(
@@ -115,12 +111,15 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
                     .addToBackStack(null)
                     .commit()
         }
+        btn_cart_home.setOnClickListener {
+            val intent = Intent(context, CartActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 
     //item click cua rcv items
     override fun OnItemClick(item: Item) {
-        Toast.makeText(requireContext(), item.name, Toast.LENGTH_SHORT).show()
         val intent = Intent(context, ProductActivity::class.java)
         intent.putExtra("name", item.name)
         startActivity(intent)
@@ -133,7 +132,6 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
 
     //item click categories
     override fun onCategoriesHomeClick(item: HomeCategoriesItem) {
-        Toast.makeText(requireContext(), item.name, Toast.LENGTH_SHORT).show()
 
         val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
         transaction.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left)

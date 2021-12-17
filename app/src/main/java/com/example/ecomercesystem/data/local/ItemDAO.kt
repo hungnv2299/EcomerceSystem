@@ -27,10 +27,10 @@ interface ItemDAO {
     @Query("SELECT * FROM items WHERE name=:name")
     fun selectByName(name: String): List<Item>
 
-    @Query("SELECT * FROM items LIMIT 12")
+    @Query("SELECT * FROM items LIMIT 6")
     fun selectRecommended(): List<Item>
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addToFavor(itemFavor: ItemFavor)
 
     @Query("SELECT * FROM favourite")
@@ -39,7 +39,7 @@ interface ItemDAO {
     @Delete
     fun deleteFromFavor(itemFavor: ItemFavor)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun addToCart(itemCart: ItemCart)
 
     @Query("SELECT * FROM cart")
@@ -48,7 +48,7 @@ interface ItemDAO {
     @Delete
     fun deleteFromCart(itemCart: ItemCart)
 
-    @Query("SELECT SUM(price) FROM cart")
+    @Query("SELECT SUM(price*amount) FROM cart")
     fun selectSumCart(): Double
 
     @Query("SELECT SUM(amount) FROM cart")

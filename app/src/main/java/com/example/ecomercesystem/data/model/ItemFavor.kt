@@ -6,12 +6,10 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "favourite")
 data class ItemFavor(
+        @PrimaryKey
     val name:String,
     val imgsrc:String,
     val price:Double,
     val rating: Double
 )
-{
-    @PrimaryKey(autoGenerate = true)
-    var id = 0
-}
+
