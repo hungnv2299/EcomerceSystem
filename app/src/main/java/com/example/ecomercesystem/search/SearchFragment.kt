@@ -32,11 +32,10 @@ import kotlinx.android.synthetic.main.home_screen_full_fragment.*
 import kotlinx.android.synthetic.main.search_fragment.*
 import java.util.ArrayList
 import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
 import androidx.core.content.ContextCompat
 
 import androidx.core.content.ContextCompat.getSystemService
-
-
 
 
 class SearchFragment : Fragment(R.layout.search_fragment), ItemClickInterfaceSearch {
@@ -44,37 +43,31 @@ class SearchFragment : Fragment(R.layout.search_fragment), ItemClickInterfaceSea
     lateinit var manager: RecyclerView.LayoutManager
     val categoriesFragment = CategoriesFragment()
     lateinit var dataItem: List<Item>
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         itemViewModel = (activity as MainActivity).itemViewModel
 
+        et_search.requestFocus()
+        et_search.postDelayed({
+            var imm: InputMethodManager =
+                (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.toggleSoftInput(
+                InputMethodManager.SHOW_FORCED,
+                InputMethodManager.HIDE_IMPLICIT_ONLY
+            )
+        }, 100)
 
-
-//        et_search.requestFocus()
-        if (et_search.requestFocus()){
-            var imm:InputMethodManager = (activity as MainActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
-        }
-
-
-        et_search.doAfterTextChanged {
-
+            et_search.doAfterTextChanged {
+                if (!et_search.text.toString().isNullOrEmpty()) {
                 itemViewModel.searchByString(et_search.text.toString())
-
-
+            } else itemViewModel.removeSearchList()
         }
-
-
         //setup rcv items
         manager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
         val itemAdapter = ItemSearchAdapter(requireContext(), this)
 
-//        if (itemViewModel.searchItems.value.isNullOrEmpty()){
-//            itemViewModel.searchItems.postValue(null)
-//        }
-//        else{
-//
-//        }
         itemViewModel.searchItems.observe(viewLifecycleOwner, { list ->
             list?.let {
                 itemAdapter.updateList(list)
@@ -105,14 +98,17 @@ class SearchFragment : Fragment(R.layout.search_fragment), ItemClickInterfaceSea
         intent.putExtra("name", item.name)
         startActivity(intent)
     }
+
     //click add btn
     override fun OnAddBtnClick(item: Item) {
-        Toast.makeText(requireContext(), "Added "+item.name+" to cart", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Added " + item.name + " to cart", Toast.LENGTH_SHORT)
+            .show()
         itemViewModel.addToCart(ItemCart(item.name, item.imgsrc, item.price, 1))
     }
 
     override fun OnFavorIconClick(item: Item) {
-        Toast.makeText(requireContext(), "Added "+item.name+" to favourite", Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), "Added " + item.name + " to favourite", Toast.LENGTH_SHORT)
+            .show()
         itemViewModel.insertFavorItem(ItemFavor(item.name, item.imgsrc, item.price, item.rating))
     }
 

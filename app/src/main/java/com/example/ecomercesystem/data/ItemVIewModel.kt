@@ -21,23 +21,34 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
     var categories: MutableLiveData<String> = MutableLiveData()
 
     init {
-        test.postValue("test viewmodel")
+        var isInserted = isDBInserted()
+        if (isInserted < 1) {
+            insertItem(Item("Áo Hoodie Nam", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "men", "hoodie", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Áo Hoodie Nữ", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "women", "hoodie", 399.0, 4.5, "This is a Hoodie"))
+            insertItem(Item("Quần Jeans Nam", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "men", "jeans", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Quần Jeans Nữ", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "women", "jeans", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Áo Hoodie Nam", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "men", "hoodie", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Áo Hoodie Nữ", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "women", "hoodie", 399.0, 4.5, "This is a Hoodie"))
+            insertItem(Item("Quần Jeans Nam", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "men", "jeans", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Quần Jeans Nữ", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "women", "jeans", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Áo Hoodie Kids", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "kids", "hoodie", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Áo Hoodie Kids", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "kids", "hoodie", 399.0, 4.5, "This is a Hoodie"))
+            insertItem(Item("Quần Jeans Kids", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "kids", "jeans", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Quần Jeans Kids", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "kids", "jeans", 200.0, 2.5, "abcxyz"))
+        }
         getRecommendedItems()
         getAllItems()
         getFavorItems()
         getCartItems()
-
-//                allItems.postValue(listOf(
-//            Item("Ao adidas", "https://balovnxk.vn/wp-content/uploads/2017/06/balo-adidas-1.jpg", "men", "shirt", 500.0, 4.5, "abcxyz"),
-//            Item("Quan adidas", "https://cf.shopee.vn/file/78c9f55d224e5f817bffaf04670752c7", "men", "shirt", 50.0, 4.5, "abcxyz"),
-//            Item("tat adidas", "https://balovnxk.vn/wp-content/uploads/2017/06/balo-adidas-1.jpg", "men", "shirt", 5.0, 4.5, "abcxyz"),
-//            Item("Ao adidas", "https://balovnxk.vn/wp-content/uploads/2017/06/balo-adidas-1.jpg", "men", "shirt", 500.0, 4.5, "abcxyz"),
-//            Item("Quan adidas", "https://cf.shopee.vn/file/78c9f55d224e5f817bffaf04670752c7", "men", "shirt", 50.0, 4.5, "abcxyz"),
-//            Item("tat adidas", "https://balovnxk.vn/wp-content/uploads/2017/06/balo-adidas-1.jpg", "men", "shirt", 5.0, 4.5, "abcxyz")))
     }
 
     fun getAllItemsObservers(): MutableLiveData<List<Item>> {
         return allItems
+    }
+
+    fun isDBInserted(): Int {
+        val dao = ItemDB.getDB(getApplication()).itemDAO()
+        return dao.isDBInserted()
     }
 
     fun getFavorItems() {
@@ -53,6 +64,7 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
 
         cartItems.postValue(list)
     }
+
     fun getAmountCart(): Int? {
         return cartItems.value?.size
     }
@@ -64,21 +76,21 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
         allItems.postValue(list)
     }
 
-    fun getItemByName(name:String):Item {
+    fun getItemByName(name: String): Item {
         val dao = ItemDB.getDB(getApplication()).itemDAO()
         val list = dao.selectByName(name)
         return list[0]
 //        selectedItems.postValue(list)
     }
 
-    fun getItemsByCategories(category:String) {
+    fun getItemsByCategories(category: String) {
         val dao = ItemDB.getDB(getApplication()).itemDAO()
         val list = dao.selectItemsbyCategories(category)
 
         allItems.postValue(list)
     }
 
-    fun getItemsByType(category:String, type:String) {
+    fun getItemsByType(category: String, type: String) {
         val dao = ItemDB.getDB(getApplication()).itemDAO()
         val list = dao.selectItemsbyType(category, type)
 
@@ -132,46 +144,42 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
         getCartItems()
     }
 
-    fun getSubTotal():Double{
+    fun getSubTotal(): Double {
         val dao = ItemDB.getDB(getApplication()).itemDAO()
         return dao.selectSumCart()
     }
 
-    fun getAmount():Int{
+    fun getAmount(): Int {
         val dao = ItemDB.getDB(getApplication()).itemDAO()
         return dao.selectSumAmount()
     }
 
-    fun itemCartMinus(itemCart: ItemCart){
+    fun itemCartMinus(itemCart: ItemCart) {
         val dao = ItemDB.getDB(getApplication()).itemDAO()
-        if (itemCart.amount<=1)
+        if (itemCart.amount <= 1)
             deleteFromCart(itemCart)
         dao.itemCartMinus(itemCart.name)
 
         getCartItems()
     }
-    fun itemCartPlus(name: String){
+
+    fun itemCartPlus(name: String) {
         val dao = ItemDB.getDB(getApplication()).itemDAO()
         dao.itemCartPlus(name)
 
         getCartItems()
     }
 
-    fun searchByString(string: String){
+    fun searchByString(string: String) {
         val dao = ItemDB.getDB(getApplication()).itemDAO()
         val list = dao.searchByString(string)
 
         searchItems.postValue(list)
     }
 
-    fun removeSearchList(){
-        searchItems.postValue(null)
+    fun removeSearchList() {
+        searchItems.postValue(listOf())
     }
-
-
-
-
-
 
 
 }

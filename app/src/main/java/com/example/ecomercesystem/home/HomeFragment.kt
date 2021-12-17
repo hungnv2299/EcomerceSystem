@@ -1,10 +1,12 @@
 package com.example.ecomercesystem.home
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -25,8 +27,15 @@ import com.example.ecomercesystem.data.model.HomeCategoriesItem
 import com.example.ecomercesystem.data.model.Item
 import com.example.ecomercesystem.data.model.ItemFavor
 import com.example.ecomercesystem.home_full.HomeFullFragment
+import com.example.ecomercesystem.search.SearchFragment
 import kotlinx.android.synthetic.main.home_screen_fargment.*
+import kotlinx.android.synthetic.main.home_screen_full_fragment.*
 import java.util.ArrayList
+import androidx.core.content.ContextCompat.getSystemService
+
+import android.widget.EditText
+import androidx.core.content.ContextCompat
+
 
 class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface,
     CategoriesHomeClickInterface {
@@ -35,6 +44,7 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
     lateinit var categoriesManager: RecyclerView.LayoutManager
     lateinit var manager: RecyclerView.LayoutManager
     val categoriesFragment = CategoriesFragment()
+    val searchFragment = SearchFragment()
     val homeFullFragment = HomeFullFragment()
     lateinit var dataItem: List<Item>
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -48,23 +58,6 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
                 apparel.text = t?.toString()
             }
         })
-
-        apparel.setOnClickListener {
-            itemViewModel.insertItem(Item("Áo Hoodie Nam", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "men", "hoodie", 399.0, 4.1, "This is a Hoodie"))
-            itemViewModel.insertItem(Item("Áo Hoodie Nữ", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "women", "hoodie", 399.0, 4.5, "This is a Hoodie"))
-            itemViewModel.insertItem(Item("Quần Jeans Nam", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "men", "jeans", 200.0, 2.5, "abcxyz"))
-            itemViewModel.insertItem(Item("Quần Jeans Nữ", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "women", "jeans", 200.0, 2.5, "abcxyz"))
-            itemViewModel.insertItem(Item("Áo Hoodie Nam", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "men", "hoodie", 399.0, 4.1, "This is a Hoodie"))
-            itemViewModel.insertItem(Item("Áo Hoodie Nữ", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "women", "hoodie", 399.0, 4.5, "This is a Hoodie"))
-            itemViewModel.insertItem(Item("Quần Jeans Nam", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "men", "jeans", 200.0, 2.5, "abcxyz"))
-            itemViewModel.insertItem(Item("Quần Jeans Nữ", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "women", "jeans", 200.0, 2.5, "abcxyz"))
-            itemViewModel.insertItem(Item("Áo Hoodie Kids", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "kids", "hoodie", 399.0, 4.1, "This is a Hoodie"))
-            itemViewModel.insertItem(Item("Áo Hoodie Kids", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "kids", "hoodie", 399.0, 4.5, "This is a Hoodie"))
-            itemViewModel.insertItem(Item("Quần Jeans Kids", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "kids", "jeans", 200.0, 2.5, "abcxyz"))
-            itemViewModel.insertItem(Item("Quần Jeans Kids", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "kids", "jeans", 200.0, 2.5, "abcxyz"))
-
-        }
-
 
         //setup rcv categories
         var data = listOf(
@@ -116,7 +109,17 @@ class HomeFragment : Fragment(R.layout.home_screen_fargment), ItemClickInterface
                 .commit()
             itemViewModel.getAllItems()
         }
+
+        //chuyen tab search
+        btn_search_home.setOnClickListener {
+            val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
+            transaction.replace(R.id.fragment_container_main, searchFragment)
+                .addToBackStack(null)
+                .commit()
+
+        }
     }
+
 
     //item click cua rcv items
     override fun OnItemClick(item: Item) {

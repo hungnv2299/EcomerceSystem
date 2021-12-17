@@ -18,15 +18,9 @@ class ProductActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product)
         itemViewModel = ViewModelProvider(this).get(ItemVIewModel::class.java)
         val intent = intent
-        Toast.makeText(this, "Intent: "+intent.getStringExtra("name"), Toast.LENGTH_SHORT).show()
         var a = intent.getStringExtra("name")
         itemViewModel.getItemByName(intent.getStringExtra("name")!!)
-//        Toast.makeText(this, itemViewModel.getItemByName(a!!).name, Toast.LENGTH_SHORT).show()
-//        Toast.makeText(this, itemViewModel.getItemByName(a!!).imgsrc, Toast.LENGTH_SHORT).show()
-//        Toast.makeText(this, itemViewModel.getItemByName(a!!).price.toString(), Toast.LENGTH_SHORT).show()
-//        Toast.makeText(this, itemViewModel.getItemByName(a!!).rating.toString(), Toast.LENGTH_SHORT).show()
 
-//        var item : Item = itemViewModel.selectedItems.value?.get(0)!!
         Glide.with(this).load(itemViewModel.getItemByName(a!!).imgsrc).into(iv_product_page)
         tv_name_product_page.text = itemViewModel.getItemByName(a!!).name
         tv_price_product_page.text = "Rs. "+itemViewModel.getItemByName(a!!).price.toString()
