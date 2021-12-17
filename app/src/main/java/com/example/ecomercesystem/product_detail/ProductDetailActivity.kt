@@ -1,17 +1,13 @@
-package com.example.ecomercesystem
+package com.example.ecomercesystem.product_detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.ecomercesystem.R
 import com.example.ecomercesystem.data.ItemVIewModel
 import com.example.ecomercesystem.data.model.ItemCart
-import kotlinx.android.synthetic.main.activity_product.*
-import kotlinx.android.synthetic.main.activity_product.iv_product_page
-import kotlinx.android.synthetic.main.activity_product.tv_name_product_page
-import kotlinx.android.synthetic.main.activity_product.tv_price_product_page
-import kotlinx.android.synthetic.main.activity_product.tv_rating_product_page
 import kotlinx.android.synthetic.main.activity_product_detail.*
 
 class ProductDetailActivity : AppCompatActivity() {
