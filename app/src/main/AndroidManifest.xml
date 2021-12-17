@@ -11,10 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcomerceSystem">
         <activity
-            android:name=".ProductDetailActivity"
+            android:name=".product_detail.ProductDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ProductActivity"
+            android:name=".cart.CartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".product_detail.ProductActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"

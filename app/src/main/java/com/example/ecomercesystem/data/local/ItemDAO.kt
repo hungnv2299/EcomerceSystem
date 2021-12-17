@@ -48,8 +48,13 @@ interface ItemDAO {
     @Delete
     fun deleteFromCart(itemCart: ItemCart)
 
+<<<<<<< HEAD
     @Query("SELECT SUM(price) FROM cart")
     fun selectSumCart(): Double
+=======
+    @Query("SELECT SUM(price*amount) FROM cart")
+    fun selectSumCart() : Double
+>>>>>>> 66a58caa0be0732f4d08241083dc97f7b7cc3520
 
     @Query("SELECT SUM(amount) FROM cart")
     fun selectSumAmount(): Int

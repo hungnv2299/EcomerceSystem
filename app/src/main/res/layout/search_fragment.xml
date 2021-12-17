@@ -40,7 +40,10 @@
 
         android:id="@+id/et_search"
         android:focusedByDefault="true"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 66a58caa0be0732f4d08241083dc97f7b7cc3520
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen64dp"
         android:layout_marginStart="@dimen/dimen_20dp"

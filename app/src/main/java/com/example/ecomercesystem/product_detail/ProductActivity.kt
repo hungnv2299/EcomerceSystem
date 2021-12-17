@@ -1,4 +1,4 @@
-package com.example.ecomercesystem
+package com.example.ecomercesystem.product_detail
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import com.example.ecomercesystem.R
 import com.example.ecomercesystem.data.ItemVIewModel
-import com.example.ecomercesystem.data.model.Item
 import com.example.ecomercesystem.data.model.ItemCart
 import kotlinx.android.synthetic.main.activity_product.*
 
