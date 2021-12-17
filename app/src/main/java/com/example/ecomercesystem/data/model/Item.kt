@@ -20,12 +20,10 @@ data class Item(
 
 @Entity(tableName = "cart")
 data class ItemCart(
+        @PrimaryKey
     val name:String,
     val imgsrc:String,
     val price:Double,
     val amount: Int
 )
-{
-    @PrimaryKey(autoGenerate = true)
-    var id = 0
-}
+

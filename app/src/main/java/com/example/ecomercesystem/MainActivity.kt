@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private val homeFragment = HomeFragment()
     private val favoriteFragment = FavouriteFragment()
-    private val checkoutFragment = CartFragment()
     lateinit var itemViewModel: ItemVIewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,15 +30,20 @@ class MainActivity : AppCompatActivity() {
                     itemViewModel.getCartItems()
                     val intent = Intent(this, CartActivity::class.java)
                     startActivity(intent)
+
                 }
             }
             true
         }
 
+
+
     }
+
     private fun loadFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container_main, fragment)
+//        transaction.addToBackStack(null)
         transaction.commit()
     }
 

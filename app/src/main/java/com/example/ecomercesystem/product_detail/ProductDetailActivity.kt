@@ -1,11 +1,13 @@
 package com.example.ecomercesystem.product_detail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.ecomercesystem.R
+import com.example.ecomercesystem.cart.CartActivity
 import com.example.ecomercesystem.data.ItemVIewModel
 import com.example.ecomercesystem.data.model.ItemCart
 import kotlinx.android.synthetic.main.activity_product_detail.*
@@ -32,6 +34,10 @@ class ProductDetailActivity : AppCompatActivity() {
         }
         btn_back_product_page_detail.setOnClickListener {
             onBackPressed()
+        }
+        btn_cart_product_detail_page.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
         }
 
     }
