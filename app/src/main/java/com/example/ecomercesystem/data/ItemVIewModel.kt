@@ -23,18 +23,33 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
     init {
         var isInserted = isDBInserted()
         if (isInserted < 1) {
-            insertItem(Item("Áo Hoodie Nam", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "men", "hoodie", 399.0, 4.1, "This is a Hoodie"))
-            insertItem(Item("Áo Hoodie Nữ", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "women", "hoodie", 399.0, 4.5, "This is a Hoodie"))
+            insertItem(Item("Áo Tshirt Nam", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "men", "shirt", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Áo Hoodie Nam", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "men", "hoodie", 399.0, 4.5, "This is a Hoodie"))
             insertItem(Item("Quần Jeans Nam", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "men", "jeans", 200.0, 2.5, "abcxyz"))
-            insertItem(Item("Quần Jeans Nữ", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "women", "jeans", 200.0, 2.5, "abcxyz"))
-            insertItem(Item("Áo Hoodie Nam", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "men", "hoodie", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Quần Shorts Nam", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "men", "shorts", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Áo Len Nam", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "men", "sweater", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Quần Thể Thao Nam", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "men", "tracks", 399.0, 4.5, "This is a Hoodie"))
+            insertItem(Item("Tất Nam", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "men", "socks", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Đồ lót nam", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "men", "underwear", 200.0, 2.5, "abcxyz"))
+
+            insertItem(Item("Áo Tshirt Nữ", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "women", "shirt", 399.0, 4.1, "This is a Hoodie"))
             insertItem(Item("Áo Hoodie Nữ", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "women", "hoodie", 399.0, 4.5, "This is a Hoodie"))
-            insertItem(Item("Quần Jeans Nam", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "men", "jeans", 200.0, 2.5, "abcxyz"))
-            insertItem(Item("Quần Jeans Nữ", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "women", "jeans", 200.0, 2.5, "abcxyz"))
-            insertItem(Item("Áo Hoodie Kids", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "kids", "hoodie", 399.0, 4.1, "This is a Hoodie"))
-            insertItem(Item("Áo Hoodie Kids", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "kids", "hoodie", 399.0, 4.5, "This is a Hoodie"))
-            insertItem(Item("Quần Jeans Kids", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "kids", "jeans", 200.0, 2.5, "abcxyz"))
-            insertItem(Item("Quần Jeans Kids", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "kids", "jeans", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Quần Jeans Nữ", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "women", "jeans", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Quần Shorts Nữ", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "women", "shorts", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Áo Len Nữ", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "women", "sweater", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Quần Thể Thao Nữ", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "women", "tracks", 399.0, 4.5, "This is a Hoodie"))
+            insertItem(Item("Tất Nữ", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "women", "socks", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Đồ lót Nữ", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "women", "underwear", 200.0, 2.5, "abcxyz"))
+
+            insertItem(Item("Áo Tshirt Trẻ em", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "kids", "shirt", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Áo Hoodie Trẻ em", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "kids", "hoodie", 399.0, 4.5, "This is a Hoodie"))
+            insertItem(Item("Quần Jeans Trẻ em", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "kids", "jeans", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Quần Shorts Trẻ em", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "kids", "shorts", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Áo Len Trẻ em", "https://www.buytshirtsonline.co.uk/images/mens-anthem-hoodie-p11285-237976_medium.jpg", "kids", "sweater", 399.0, 4.1, "This is a Hoodie"))
+            insertItem(Item("Quần Thể Thao Trẻ em", "https://www.ikea.com/au/en/images/products/eftertraeda-hoodie-white__0932916_pe791670_s5.jpg?f=s", "kids", "tracks", 399.0, 4.5, "This is a Hoodie"))
+            insertItem(Item("Tất Trẻ em", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFx-VPNIETzEiGUnCiqsp3mK7gkGd-8ZOgwdGaYu3p7AijVPj8KOSfpaqM_pi_oiuA-fY&usqp=CAU", "kids", "socks", 200.0, 2.5, "abcxyz"))
+            insertItem(Item("Đồ lót Trẻ em", "https://st.mngbcn.com/rcs/pics/static/T1/fotos/outfit/S20/17010609_TC-99999999_01.jpg?ts=1619017511413&imwidth=388&imdensity=2", "kids", "underwear", 200.0, 2.5, "abcxyz"))
+
         }
         getRecommendedItems()
         getAllItems()
@@ -56,6 +71,11 @@ class ItemVIewModel(application: Application) : AndroidViewModel(application) {
         val list = dao.selectAllFavor()
 
         favorItems.postValue(list)
+    }
+
+    fun deleteCart(){
+        val dao = ItemDB.getDB(getApplication()).itemDAO()
+        dao.deleteAllFromCart()
     }
 
     fun getCartItems() {

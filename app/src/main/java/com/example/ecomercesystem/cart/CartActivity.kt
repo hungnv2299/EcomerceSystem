@@ -1,8 +1,10 @@
 package com.example.ecomercesystem.cart
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -39,6 +41,20 @@ class CartActivity:AppCompatActivity(), ItemClickInterfaceCart{
             onBackPressed()
         }
 
+        button_checkout.setOnClickListener {
+            val dialogBuilder = AlertDialog.Builder(this)
+
+            dialogBuilder.setMessage("Vui lòng thanh toán Rs." + itemViewModel.getSubTotal().toString())
+                    .setCancelable(false)
+                    .setPositiveButton("OK", DialogInterface.OnClickListener { dialog, id ->
+                        finish()
+                    })
+            val alert = dialogBuilder.create()
+            alert.setTitle("Cảm ơn bạn đã mua hàng")
+            alert.show()
+            itemViewModel.deleteCart()
+
+        }
     }
 
     override fun OnItemClick(item: ItemCart) {
